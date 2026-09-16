@@ -1,4 +1,4 @@
-class karte:
+class Karte:
     def __init__(self, farbe, wert):
         self.farbe = farbe
         self.wert = wert
@@ -12,8 +12,4 @@ class karte:
     def setWert(self,wert):
         self.wert=wert
     def __str__(self):
-        return self.farbe + ", " + self.wert
-karte1 = karte("rot", "1")
-karte2 = karte("gelb", "0")
-print(karte1)
-print(karte2)
+        return self.farbe + ", " + str(self.wert)
