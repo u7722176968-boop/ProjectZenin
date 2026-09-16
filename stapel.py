@@ -17,6 +17,14 @@ class Stapel:
             for i in range(10):
                 karte = Karte("gelb", i)
                 self.verdeckt.append(karte)
+        karteblau = Karte("blau", 0)
+        kartegrün = Karte("grün", 0)
+        karterot = Karte("rot", 0)
+        kartegelb = Karte("gelb", 0)
+        self.verdeckt.append(karteblau)
+        self.verdeckt.append(kartegrün)
+        self.verdeckt.append(karterot)
+        self.verdeckt.append(kartegelb)
     def getVerdeckt(self):
         return self.verdeckt
     def getAbgelegt(self):
@@ -32,10 +40,5 @@ class Stapel:
         print(text)
 
 stapel1 = Stapel()
-karte1 = Karte("blau", 0)
-karte2 = Karte("rot", 6)
-karte3 = Karte("grün", 4)
-
-karten = [karte1, karte2, karte3]
-stapel1.setVerdeckt(karten)
+stapel1.StapelErzeugen()
 stapel1.verdecktToString()
