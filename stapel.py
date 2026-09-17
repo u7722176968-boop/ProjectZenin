@@ -39,12 +39,10 @@ class Stapel:
         text = "verdeckt:\n"
         for karte in self.verdeckt:
             text += str(karte) + "\n"
-        print(text)
     def abgelegtToString(self):
             text = "abgelegt:\n"
             for karte in self.abgelegt:
                 text += str(karte) + "\n"
-            print(text)
     def mischen(self, stapelnummer):
         if stapelnummer == 0:
             random.shuffle(self.verdeckt)
@@ -67,8 +65,6 @@ class Stapel:
                 verteilteKarten.append(karteVerteilung)
             anfangsHand = Hand(verteilteKarten, i+1)
             haende.append(anfangsHand)
-        for k in haende:
-            print(k)
         return haende
         
 stapel1 = Stapel()
@@ -77,4 +73,3 @@ stapel1.verdecktToString()
 stapel1.mischen(0)
 stapel1.verdecktToString()
 stapel1.ausgeben(2)
-print(str(len(stapel1.getVerdeckt())))
