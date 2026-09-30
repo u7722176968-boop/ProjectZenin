@@ -13,3 +13,9 @@ Info: getAnzahl(), 0 -> verdeckter Stappel, andere Zahl -> abgelegter Stappel
 
 To-Dos für später:
 - Befehle nicht immer ausführbar machen, z.B. kartenausgeben oder aufdecken nur am Anfang
+- überprüfen ob Karte legbar ist
+- Spiel endet wenn keine Karten vorhanden sind
+- Weiter, wenn man nicht legen kann
+- Uno print bei letzter Karte
+- Spiel jederzeit beenden
+- soll komplette Hand immer neu angezeigt werden?

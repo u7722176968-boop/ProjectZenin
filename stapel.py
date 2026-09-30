@@ -39,10 +39,12 @@ class Stapel:
         text = "verdeckt:\n"
         for karte in self.verdeckt:
             text += str(karte) + "\n"
+        return text
     def abgelegtToString(self):
             text = "abgelegt:\n"
             for karte in self.abgelegt:
                 text += str(karte) + "\n"
+            return text
     def mischen(self, stapelnummer):
         if stapelnummer == 0:
             random.shuffle(self.verdeckt)
