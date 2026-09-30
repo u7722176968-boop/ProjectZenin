@@ -1,12 +1,17 @@
 from hand import Hand
 from stapel import Stapel
 import random
+import os
 
 
 class Spiel:
     def __init__(self):
         self.spieler = []
         self.stapel = Stapel()
+    def clear(self):
+        os.system("clear")
+        print("Ablagestapel:")
+        print(self.stapel.abgelegt[-1])
     def karteblegen(self,l, legendeKarte):
         self.gelegteKarte = self.spieler[l-1].getKarten().pop(legendeKarte)
     
@@ -29,7 +34,7 @@ class Spiel:
 
         while True:
             print("Kann Spieler " + str(l) + " legen?")
-            print("Falls ja, :ja: eingeben")
+            print("Für das Legen :ja: eingeben")
             print(self.spielername[l-1] + ":")
             print(self.spieler[l-1])
 
@@ -45,6 +50,11 @@ class Spiel:
                     karte = self.spieler[l-1].getKarten()[legendeKarte]
                     if self.kartePruefen(karte):
                         self.karteblegen(l, legendeKarte)
+                        if len(self.spieler[l-1].getKarten()) == 1:
+                            print("UNO")
+                        elif len(self.spieler[l-1].getKarten()) == 0:
+                            print(self.spielername[l-1] + " hat gewonnen!!!")
+                            exit()
 
                         l += 1
 
@@ -56,15 +66,19 @@ class Spiel:
 
                 else:
                     print("Gib eine Position ein, die in deinem Kartendeck vorhanden ist!")
+                self.clear()
 
             elif eingabe.lower() == "passen":
                 karte = self.stapel.verdeckt.pop()
-                self.spieler[l].getKarten().append(karte)
-                print("Gezogenen Karte: " + self.spieler[l].getKarten()[-1])
+                self.spieler[l-1].getKarten().append(karte)
+                print("Gezogenen Karte: " , self.spieler[l-1].getKarten()[-1])
                 l += 1
+                self.clear()
 
                 if l > self.spieleranzahl:
                     l = 1
+            else:
+                print("Gib entweder Passen oder ja ein!")
 
     def spielen(self):
         self.stapel.StapelErzeugen()
@@ -109,7 +123,7 @@ class Spiel:
                     print("Alle Hände angezeigt.")
                     print("Für Spielbeginn: starten : eingeben")
 
-            elif eingabe == "starten":
+            elif eingabe.lower() == "starten":
                 print("Spiel geht los")
                 self.stapel.aufdecken()
                 print(self.stapel.abgelegt[-1])

@@ -14,14 +14,14 @@ Info: getAnzahl(), 0 -> verdeckter Stappel, andere Zahl -> abgelegter Stappel
 To-Dos für später:
 - Befehle nicht immer ausführbar machen, z.B. kartenausgeben oder aufdecken nur am Anfang
 - :Hacken: überprüfen ob Karte legbar ist 
-- Spiel endet wenn keine Karten vorhanden sind
+- :Hacken: Spiel endet wenn keine Karten vorhanden sind
 - :Hacken: Weiter, wenn man nicht legen kann
-- Uno print bei letzter Karte
-- Spiel jederzeit beenden
-- soll komplette Hand immer neu angezeigt werden?
+- :Hacken: Uno print bei letzter Karte
+- :Hacken: Spiel jederzeit beenden
+- :Hacken: soll komplette Hand immer neu angezeigt werden?
 - :Hacken: Spieler Namen zuordnen
-- wenn Name Arnold, dann zu Soft Daddy
-- Karte ziehen bei nicht ablegen
+- :Hacken:wenn Name Arnold, dann zu Soft Daddy
+- :Hacken: Karte ziehen bei nicht ablegen
 - (Sonderkarten)
 - Kartendeck neu durchmischen wenn durch und so ne scheiße
 
