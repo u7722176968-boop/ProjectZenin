@@ -57,7 +57,7 @@ class Spiel:
                         if len(self.spieler[l-1].getKarten()) == 1:
                             print("UNO")
                         elif len(self.spieler[l-1].getKarten()) == 0:
-                            self.feuerwerk.explosion(self.spielername[l-1])
+                            self.feuerwerk.explosion(self.spielername[l-1]) #kleine "Animation" beim Gewinnen
                             exit()
 
                         l += 1
@@ -80,9 +80,9 @@ class Spiel:
                     while len(self.stapel.abgelegt) > 1:
                         karte = self.stapel.abgelegt.pop(0)
                         self.stapel.verdeckt.append(karte)
-                    self.stapel.mischen(0)
+                    self.stapel.mischen(0) #einfach erst Karten übertragen auf verdeckt, dann Mischen -> wieder mischen(0)
                     print("Stapel neu gemischt und neue Karten")
-                    time.sleep(5)
+                    time.sleep(3)
                 karte = self.stapel.verdeckt.pop()
                 self.spieler[l-1].getKarten().append(karte)
                 print("Gezogenen Karte: " , self.spieler[l-1].getKarten()[-1])
@@ -108,7 +108,7 @@ class Spiel:
 
         self.spieler = self.stapel.ausgeben(self.spieleranzahl)
         self.spielername = []
-        for i in range(self.spieleranzahl):
+        for i in range(self.spieleranzahl): #customized Namen und Spielernamen Zuordnung
             name = input("Name von Spieler " + str(i + 1) + ": ")
             if name == "Arnold":
                 self.spielername.append("Soft Daddy")
