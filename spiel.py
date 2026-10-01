@@ -2,6 +2,7 @@ from hand import Hand
 from stapel import Stapel
 import random
 import os
+import time
 
 
 class Spiel:
@@ -69,6 +70,13 @@ class Spiel:
                 self.clear()
 
             elif eingabe.lower() == "passen":
+                if len(self.stapel.verdeckt) == 0:
+                    while len(self.stapel.abgelegt) > 1:
+                        karte = self.stapel.abgelegt.pop(0)
+                        self.stapel.verdeckt.append(karte)
+                    self.stapel.mischen(0)
+                    print("Stapel neu gemischt und neue Karten")
+                    time.sleep(5)
                 karte = self.stapel.verdeckt.pop()
                 self.spieler[l-1].getKarten().append(karte)
                 print("Gezogenen Karte: " , self.spieler[l-1].getKarten()[-1])
@@ -84,8 +92,11 @@ class Spiel:
         self.stapel.StapelErzeugen()
         self.stapel.mischen(0)
 
-        print("Spieleranzahl eingeben: ")
+        print("Spieleranzahl eingeben (zwischen 2 und 6): ")
         self.spieleranzahl = int(input())
+        while self.spieleranzahl > 6 and self.spieleranzahl < 2:
+            print("Spieleranzhl muss zwischen 2 und 6 liegen")
+            self.spieleranzahl = int(input())
 
         self.spieler = self.stapel.ausgeben(self.spieleranzahl)
         self.spielername = []
@@ -103,6 +114,10 @@ class Spiel:
                 self.spielername.append("FetteLuntenKifferin")
             elif name == "Leopold":
                  self.spielername.append("unoMeisterMann")
+            elif name == "Benjamin":
+                self.spielername.append("GOAT")
+            elif name == "Elsa":
+                self.spielername.append("Schweißkönigin")
             else:
                 self.spielername.append(name)
             
