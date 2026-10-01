@@ -69,9 +69,4 @@ class Stapel:
             haende.append(anfangsHand)
         return haende
         
-stapel1 = Stapel()
-stapel1.StapelErzeugen()
-stapel1.verdecktToString()
-stapel1.mischen(0)
-stapel1.verdecktToString()
-stapel1.ausgeben(2)
+

@@ -47,8 +47,13 @@ class Spiel:
             if eingabe.lower() == "ja":
 
                 print("Position der zu legenden Karte eingeben:")
-                legendeKarte = int(input())
-
+                while True:
+                    try:
+                        legendeKarte = int(input())
+                        break
+                    except ValueError:
+                        print("Bitte eine Zahl eingeben.")
+                
                 if 0 <= legendeKarte < len(self.spieler[l-1].getKarten()):
 
                     karte = self.spieler[l-1].getKarten()[legendeKarte]
