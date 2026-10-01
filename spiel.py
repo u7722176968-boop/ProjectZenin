@@ -38,7 +38,7 @@ class Spiel:
 
         while True:
             print("Kann Spieler " + str(l) + " legen?")
-            print("Für das Legen :ja: eingeben")
+            print("Für das Legen :ja: eingeben zum Passen :Passen: eingeben")
             print(self.spielername[l-1] + ":")
             print(self.spieler[l-1])
 
@@ -58,7 +58,6 @@ class Spiel:
                             print("UNO")
                         elif len(self.spieler[l-1].getKarten()) == 0:
                             self.feuerwerk.explosion(self.spielername[l-1])
-                            print(self.spielername[l-1] + " hat gewonnen!!!")
                             exit()
 
                         l += 1
@@ -95,14 +94,15 @@ class Spiel:
                     l = 1
             else:
                 print("Gib entweder Passen oder ja ein!")
+                time.sleep(2)
+                self.clear()
 
     def spielen(self):
         self.stapel.StapelErzeugen()
         self.stapel.mischen(0)
-        self.feuerwerk.explosion("Benjamin")
         print("Spieleranzahl eingeben (zwischen 2 und 6): ")
         self.spieleranzahl = int(input())
-        while self.spieleranzahl > 6 and self.spieleranzahl < 2:
+        while self.spieleranzahl > 6 or self.spieleranzahl < 2:
             print("Spieleranzhl muss zwischen 2 und 6 liegen")
             self.spieleranzahl = int(input())
 
