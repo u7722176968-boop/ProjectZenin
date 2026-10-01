@@ -23,5 +23,6 @@ To-Dos für später:
 - :Hacken:wenn Name Arnold, dann zu Soft Daddy
 - :Hacken: Karte ziehen bei nicht ablegen
 - (Sonderkarten)
-- Kartendeck neu durchmischen wenn durch und so ne scheiße
+- :Hacken: Kartendeck neu durchmischen wenn durch und so ne scheiße
+- bei passen clear erst später machen auch time.sleep(5)
 

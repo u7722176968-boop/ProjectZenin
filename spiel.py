@@ -1,5 +1,6 @@
 from hand import Hand
 from stapel import Stapel
+from feuerwerk import Feuerwerk
 import random
 import os
 import time
@@ -9,6 +10,8 @@ class Spiel:
     def __init__(self):
         self.spieler = []
         self.stapel = Stapel()
+        self.feuerwerk = Feuerwerk()
+    
     def clear(self):
         os.system("clear")
         print("Ablagestapel:")
@@ -54,6 +57,7 @@ class Spiel:
                         if len(self.spieler[l-1].getKarten()) == 1:
                             print("UNO")
                         elif len(self.spieler[l-1].getKarten()) == 0:
+                            self.feuerwerk.explosion(self.spielername[l-1])
                             print(self.spielername[l-1] + " hat gewonnen!!!")
                             exit()
 
@@ -64,9 +68,12 @@ class Spiel:
 
                     else:
                         print("Diese Karte ist nicht legbar!")
+                        time.sleep(2)
 
                 else:
                     print("Gib eine Position ein, die in deinem Kartendeck vorhanden ist!")
+                    time.sleep(2)
+                
                 self.clear()
 
             elif eingabe.lower() == "passen":
@@ -81,6 +88,7 @@ class Spiel:
                 self.spieler[l-1].getKarten().append(karte)
                 print("Gezogenen Karte: " , self.spieler[l-1].getKarten()[-1])
                 l += 1
+                time.sleep(3)
                 self.clear()
 
                 if l > self.spieleranzahl:
@@ -91,7 +99,7 @@ class Spiel:
     def spielen(self):
         self.stapel.StapelErzeugen()
         self.stapel.mischen(0)
-
+        self.feuerwerk.explosion("Benjamin")
         print("Spieleranzahl eingeben (zwischen 2 und 6): ")
         self.spieleranzahl = int(input())
         while self.spieleranzahl > 6 and self.spieleranzahl < 2:
